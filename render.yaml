@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: yapayiddaa
+    runtime: ruby
+    plan: free
+    buildCommand: bundle install && ruby build_data.rb
+    startCommand: ruby server.rb
+    envVars:
+      - key: PORT
+        value: 10000

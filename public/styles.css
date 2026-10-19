@@ -1,0 +1,1261 @@
+:root {
+  --bg-main: #080d14;
+  --bg-card: #101926;
+  --bg-card-hover: #152132;
+  --bg-elevated: #182538;
+  --bg-glass: rgba(16, 25, 38, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(0, 196, 106, 0.45);
+  --iddaa-green: #00a651;
+  --iddaa-green-bright: #00d46a;
+  --iddaa-green-glow: rgba(0, 212, 106, 0.16);
+  --iddaa-yellow: #f3e300;
+  --iddaa-yellow-glow: rgba(243, 227, 0, 0.16);
+  --accent-blue: #38bdf8;
+  --accent-purple: #a855f7;
+  --accent-red: #ef4444;
+  --accent-orange: #f59e0b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 10% 0%, rgba(0, 166, 81, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(243, 227, 0, 0.07) 0%, transparent 35%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #24354d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334b6b;
+}
+
+/* Header */
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 13, 20, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--iddaa-green), #006832);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--iddaa-yellow);
+  box-shadow: 0 4px 16px rgba(0, 166, 81, 0.35);
+  border: 1px solid rgba(243, 227, 0, 0.35);
+}
+
+.brand-text h1 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-text h1 span.highlight {
+  color: var(--iddaa-yellow);
+}
+
+.brand-text p {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--iddaa-green-bright);
+  box-shadow: 0 0 0 0 rgba(0, 212, 106, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 212, 106, 0.7); }
+  70% { box-shadow: 0 0 0 7px rgba(0, 212, 106, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 212, 106, 0); }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--iddaa-green), #008842);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 166, 81, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--iddaa-green-bright), var(--iddaa-green));
+}
+
+.btn-yellow {
+  background: var(--iddaa-yellow);
+  color: #0b131e;
+  font-weight: 700;
+}
+
+.btn-yellow:hover {
+  background: #fff033;
+}
+
+/* Main Container */
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 22px;
+  align-items: start;
+}
+
+@media (max-width: 1120px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Day Selector Hero Tabs (Bugün vs Yarın) */
+.day-tabs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .day-tabs-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.day-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-align: left;
+  overflow: hidden;
+}
+
+.day-tab:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.day-tab.active {
+  background: linear-gradient(135deg, rgba(0, 166, 81, 0.22), rgba(16, 25, 38, 0.95));
+  border-color: var(--iddaa-green-bright);
+  box-shadow: 0 8px 26px rgba(0, 166, 81, 0.2);
+}
+
+.day-tab.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--iddaa-yellow);
+}
+
+.day-tab-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--iddaa-yellow);
+}
+
+.day-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.day-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.day-count-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.28);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.day-count-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--iddaa-green-bright);
+  line-height: 1.1;
+}
+
+.day-tab.active .day-count-num {
+  color: var(--iddaa-yellow);
+}
+
+.day-count-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.day-tab-compact {
+  padding: 16px 20px;
+  min-width: 190px;
+}
+
+/* AI Daily Combos Banner */
+.ai-combos-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+  .ai-combos-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.combo-card {
+  background: linear-gradient(145deg, #132030, #0d1622);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.combo-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, rgba(0, 212, 106, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.combo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.combo-title {
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--iddaa-yellow);
+}
+
+.combo-total-odd {
+  font-size: 13px;
+  font-weight: 800;
+  background: rgba(0, 212, 106, 0.16);
+  color: var(--iddaa-green-bright);
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 212, 106, 0.3);
+}
+
+.combo-picks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.combo-pick-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.combo-pick-teams {
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 175px;
+}
+
+.combo-pick-badge {
+  font-weight: 700;
+  color: var(--iddaa-yellow);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.combo-apply-btn {
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 212, 106, 0.35);
+  background: rgba(0, 166, 81, 0.18);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.combo-apply-btn:hover {
+  background: var(--iddaa-green);
+}
+
+/* Sport Category Pills */
+.sport-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.sport-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.sport-pill:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sport-pill.active {
+  background: var(--iddaa-green);
+  color: #fff;
+  border-color: var(--iddaa-green-bright);
+  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.3);
+}
+
+.sport-pill .pill-count {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Filters Bar */
+.filters-bar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 210px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 9px 12px 9px 34px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--iddaa-green-bright);
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.filter-select {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 9px 11px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: var(--iddaa-green-bright);
+}
+
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s;
+}
+
+.filter-toggle.active {
+  background: rgba(243, 227, 0, 0.14);
+  border-color: var(--iddaa-yellow);
+  color: var(--iddaa-yellow);
+}
+
+/* Results Info Bar */
+.results-info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  padding: 0 4px;
+}
+
+/* Match Cards List */
+.matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 15px 18px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.match-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: var(--bg-card-hover);
+}
+
+.match-card.live-match {
+  border-left: 3px solid var(--accent-red);
+}
+
+/* Match Top Meta */
+.match-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 11px;
+  flex-wrap: wrap;
+}
+
+.match-league {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.league-flag {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1e293b;
+}
+
+.match-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badge-time {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.badge-live {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  animation: pulse 1.8s infinite;
+}
+
+.badge-mbs {
+  background: rgba(56, 189, 248, 0.14);
+  color: var(--accent-blue);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-king {
+  background: rgba(243, 227, 0, 0.14);
+  color: var(--iddaa-yellow);
+  border: 1px solid rgba(243, 227, 0, 0.3);
+}
+
+.badge-popular {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Match Main Row */
+.match-main-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.1fr 1.6fr;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .match-main-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.teams-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.vs-divider {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.predicted-score-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--iddaa-green-bright);
+  background: rgba(0, 212, 106, 0.1);
+  border: 1px solid rgba(0, 212, 106, 0.25);
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+/* AI Prediction Highlight Box */
+.ai-prediction-box {
+  background: linear-gradient(135deg, rgba(0, 166, 81, 0.14), rgba(24, 37, 56, 0.9));
+  border: 1px solid rgba(0, 212, 106, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-pred-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ai-pred-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--iddaa-yellow);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.risk-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 999px;
+}
+
+.risk-banko {
+  background: rgba(0, 212, 106, 0.2);
+  color: var(--iddaa-green-bright);
+}
+
+.risk-ideal {
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--accent-blue);
+}
+
+.risk-surpriz {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--accent-orange);
+}
+
+.ai-pred-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ai-pick-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.ai-pick-odd {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--iddaa-yellow);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.confidence-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confidence-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--iddaa-green), var(--iddaa-yellow));
+}
+
+.confidence-pct {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  min-width: 58px;
+  text-align: right;
+}
+
+/* Quick Odds Grid on Match Card */
+.quick-odds-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.odds-groups-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.odds-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.odds-group-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.odds-buttons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 5px;
+}
+
+.odd-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 7px;
+  padding: 5px 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.odd-btn:hover:not(.disabled) {
+  border-color: var(--iddaa-green-bright);
+  background: rgba(0, 166, 81, 0.12);
+}
+
+.odd-btn.selected {
+  background: var(--iddaa-yellow);
+  border-color: var(--iddaa-yellow);
+  color: #0b131e;
+}
+
+.odd-btn.ai-recommended:not(.selected) {
+  border-color: rgba(0, 212, 106, 0.55);
+  box-shadow: inset 0 0 8px rgba(0, 212, 106, 0.15);
+}
+
+.odd-btn.disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.odd-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.odd-btn.selected .odd-label {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.odd-val {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.odd-btn.selected .odd-val {
+  color: #090d16;
+}
+
+/* Match Footer Reason & All Markets Button */
+.match-footer {
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ai-reason-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.alt-picks-chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.alt-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.alt-chip strong {
+  color: var(--iddaa-green-bright);
+}
+
+.all-markets-btn {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: var(--accent-blue);
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.all-markets-btn:hover {
+  background: rgba(56, 189, 248, 0.22);
+}
+
+/* Load More Button */
+.load-more-wrap {
+  text-align: center;
+  margin: 22px 0 10px;
+}
+
+/* Right Sidebar: AI Kuponum (Bet Slip) */
+.sidebar-coupon {
+  position: sticky;
+  top: 84px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.coupon-header {
+  background: linear-gradient(135deg, var(--iddaa-green), #006b34);
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coupon-header h3 {
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coupon-count-badge {
+  background: var(--iddaa-yellow);
+  color: #090d16;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.coupon-body {
+  padding: 16px;
+}
+
+.coupon-empty {
+  text-align: center;
+  padding: 28px 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.coupon-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 360px;
+  overflow-y: auto;
+  margin-bottom: 14px;
+}
+
+.coupon-item {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  position: relative;
+}
+
+.coupon-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding-right: 20px;
+}
+
+.coupon-remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.coupon-remove-btn:hover {
+  color: var(--accent-red);
+}
+
+.coupon-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.coupon-item-odd {
+  font-weight: 800;
+  color: var(--iddaa-yellow);
+  font-size: 13px;
+}
+
+.coupon-summary {
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.summary-row.total-win {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--iddaa-green-bright);
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.stake-select {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.coupon-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Modal for All Markets of a Match */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  max-width: 920px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  padding: 18px 22px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--text-primary);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px 22px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.market-block {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.market-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--iddaa-yellow);
+}
+
+.market-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 8px;
+}
+/* Live Score & Wodd Additions */
+.team-score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.18);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.red-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+
+.odd-wodd {
+  font-size: 9.5px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.odd-btn.selected .odd-wodd {
+  color: rgba(11, 19, 30, 0.65);
+}
+
+.odd-locked-icon {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.live-stats-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  padding: 1px 8px;
+  border-radius: 999px;
+}
